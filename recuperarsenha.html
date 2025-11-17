@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Poyer</title>
+    
+    <style>
+        /* --- Configuração Geral --- */
+        :root {
+            --color-green: #6a8f44;
+            --color-green-dark: #5a7a3a;
+            --border-color: #e0e0e0;
+            --input-bg: #f9f9f9;
+            --text-primary: #333;
+            --text-secondary: #555;
+            --text-light: #aaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-primary);
+        }
+
+        /* --- Container Principal (Divide a tela em 2) --- */
+        .login-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* --- Lado Esquerdo: Formulário --- */
+        .login-section {
+            flex-basis: 50%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* --- Logo --- */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+        }
+
+        /* --- Título e Instrução --- */
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .form-header p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+
+        /* --- Campos do Formulário --- */
+        form {
+            width: 100%;
+        }
+
+        form label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        form input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--input-bg);
+        }
+
+        form input[type="email"]::placeholder {
+            color: var(--text-light);
+        }
+
+        /* --- Botão --- */
+        .login-button {
+            width: 100%;
+            padding: 16px;
+            margin-top: 1rem; /* Espaço acima do botão */
+            border: none;
+            border-radius: 8px;
+            background-color: var(--color-green);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: var(--color-green-dark);
+        }
+
+        /* --- Link de Voltar --- */
+        .back-to-login {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .back-to-login a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .back-to-login a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Lado Direito: Imagem --- */
+        .image-section {
+            flex-basis: 50%;
+            background-color: #f0f0f0;
+            background-image: url('img/imagem-fundo.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        /* --- Responsividade (Celulares) --- */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .login-section {
+                flex-basis: 100%;
+                min-height: 100vh;
+                align-items: center; /* Centraliza melhor */
+            }
+
+            .image-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <div class="login-section">
+            <div class="login-form">
+                
+                <div class="logo-container">
+                    <img src="img/logo-poyer.png" alt="Logo Poyer" class="logo">
+                </div>
+
+                <div class="form-header">
+                    <h2>Esqueceu sua senha?</h2>
+                    <p>
+                        Não se preocupe. Insira seu e-mail e enviaremos um link 
+                        para você redefinir sua senha.
+                    </p>
+                </div>
+
+                <form action="#" method="post">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Insira seu endereço de e-mail" required>
+
+                    <button type="submit" class="login-button">Enviar link</button>
+                </form>
+
+                <div class="back-to-login">
+                    <a href="loginpage.html">
+                        &larr; Voltar para o Login
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="image-section">
+             </div>
+
+    </div>
+
+</body>
+</html>

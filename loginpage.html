@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Poyer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <div class="login-section">
+            <div class="login-form">
+                
+                <div class="logo-container">
+                    <img src="img/logo-poyer.png" alt="Logo Poyer" class="logo">
+                </div>
+
+                <form>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Insira seu endereço de e-mail">
+
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="********">
+
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Lembrar cadastro</label>
+                        </div>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="login-button" >Login</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="image-section">
+             </div>
+
+    </div>
+
+</body>
+<style>
+    /* --- Configuração Geral --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+/* --- Container Principal (Divide a tela em 2) --- */
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* --- Lado Esquerdo: Formulário --- */
+.login-section {
+    flex-basis: 50%; /* Ocupa 50% da largura */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px; /* Largura máxima do formulário */
+}
+
+/* --- Logo --- */
+.logo-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.logo {
+    /* Ajuste o tamanho conforme a imagem que você salvou */
+    width: 180px; 
+    height: auto;
+}
+
+/* --- Campos do Formulário --- */
+form {
+    width: 100%;
+}
+
+form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9; /* Um leve fundo para o input */
+}
+
+form input[type="email"]::placeholder,
+form input[type="password"]::placeholder {
+    color: #aaa;
+}
+
+/* --- Opções (Lembrar / Esqueceu a senha) --- */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para o checkbox e seu label não terem 
+  as margens padrão do 'form label' 
+*/
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.remember-me label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #666;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* --- Botão de Login --- */
+.login-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6a8f44; /* Cor verde da imagem */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #5a7a3a; /* Tom mais escuro */
+}
+
+/* --- Lado Direito: Imagem --- */
+.image-section {
+    flex-basis: 50%; /* Ocupa 50% da largura */
+    background-color: #f0f0f0; /* Cor de fallback */
+    
+    /* IMPORTANTE: 
+      Substitua 'imagem-fundo.jpg' pelo nome do arquivo 
+      que você salvou com a imagem da sala.
+    */
+    background-image: url('img/imagem-fundo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* --- Responsividade (Celulares) --- */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Empilha os itens */
+    }
+
+    .login-section {
+        flex-basis: 100%; /* Ocupa a tela inteira */
+        min-height: 100vh;
+        align-items: flex-start; /* Alinha no topo */
+        padding-top: 50px;
+    }
+
+    /* Esconde a imagem em telas pequenas */
+    .image-section {
+        display: none;
+    }
+}
+</style>
+</html>

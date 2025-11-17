@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Poyer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <nav class="sidebar">
+            <div class="sidebar-search">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="active"> <a href="#">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-group"></i>
+                        <span>Pacientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Financeiro</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-circle-question"></i>
+                            <span>Ajuda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-gear"></i>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="user-profile">
+                    <img src="img/adriana.png" alt="Foto de Adriana Nunes" class="avatar">
+                    <div class="user-info">
+                        <span class="user-name">Adriana Nunes</span>
+                        <span class="user-email">adrinun@poyer.com</span>
+                    </div>
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <h1>Olá, Adriana.</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-list-check"></i>
+                        <span>Ver Glosas</span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        <span>Gerar novo lote</span>
+                    </button>
+                </div>
+            </header>
+
+            <section class="stats-cards">
+                <div class="card">
+                    <span class="card-title">Aguardando faturamento</span>
+                    <span class="card-value">30</span>
+                    <a href="#" class="card-link link-atendimento">Ver Atendimentos</a>
+                </div>
+                
+                <div class="card">
+                    <span class="card-title">Glosas pendentes de análises</span>
+                    <span class="card-value">18</span>
+                    <a href="#" class="card-link link-glosa">Analisar Glosas</a>
+                </div>
+                
+                <div class="card card-chart">
+                    <span class="card-title">Valor total em glosa</span>
+                    <span class="card-value">R$ 5.000</span>
+                    <div class="card-stats">
+                        <span class="stat-percent">
+                            <i class="fas fa-arrow-trend-up"></i> 20%
+                        </span>
+                        vs Último mês
+                    </div>
+                    <svg class="mini-chart" viewBox="0 0 100 40" preserveAspectRatio="none">
+                        <path d="M 0 30 Q 15 35, 20 20 Q 25 5, 35 15 Q 45 25, 60 10 Q 75 -5, 85 10 Q 95 25, 100 20" 
+                              fill="none" stroke="#19b16a" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </section>
+
+            <section class="pending-tasks">
+                <h2>Pendências Urgentes</h2>
+                
+                <div class="filter-controls">
+                    <div class="filters">
+                        <span class="filter-tag">
+                            Glosas <i class="fas fa-times"></i>
+                        </span>
+                        <button class="btn btn-filter">
+                            <i class="fas fa-filter"></i>
+                            <span>Filtros</span>
+                        </button>
+                    </div>
+                    <div class="search-and-action">
+                        <button class="btn btn-primary">Analisar</button>
+                        <div class="list-search">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Pesquisar">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-list">
+                    <div class="list-header list-item">
+                        <div class="col-service">
+                            <i class="fa-regular fa-square-check"></i>
+                            <span>Serviço <i class="fas fa-arrow-down-long"></i></span>
+                        </div>
+                        <div class="col-status">Status</div>
+                        <div class="col-date">Data</div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="col-service">
+                            <i class="fa-regular fa-square"></i>
+                            <img src="img/bradesco.png" alt="Bradesco" class="logo-op">
+                            <div class="service-info">
+                                <span>Casimiro Miguel</span>
+                                <span>Bradesco</span>
+                            </div>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill status-pendente">Pendente</span>
+                        </div>
+                        <div class="col-date">06/09/2025</div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="col-service">
+                            <i class="fa-regular fa-square-check"></i>
+                            <img src="img/unimed.png" alt="Unimed" class="logo-op">
+                            <div class="service-info">
+                                <span>Cauã da Paz</span>
+                                <span>Unimed</span>
+                            </div>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill status-pendente">Pendente</span>
+                        </div>
+                        <div class="col-date">01/09/2025</div>
+                    </div>
+                    
+                    <div class="list-item">
+                        <div class="col-service">
+                            <i class="fa-regular fa-square"></i>
+                            <img src="img/unimed.png" alt="Unimed" class="logo-op">
+                            <div class="service-info">
+                                <span>Cauã da Paz</span>
+                                <span>Unimed</span>
+                            </div>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill status-pendente">Pendente</span>
+                        </div>
+                        <div class="col-date">06/09/2025</div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="col-service">
+                            <i class="fa-regular fa-square"></i>
+                            <img src="img/hapvida.png" alt="Hapvida" class="logo-op">
+                            <div class="service-info">
+                                <span>Tsoro Nakama</span>
+                                <span>Hapvida</span>
+                            </div>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill status-pendente">Pendente</span>
+                        </div>
+                        <div class="col-date">06/09/2025</div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="col-service">
+                            <i class="fa-regular fa-square"></i>
+                            <img src="img/unimed.png" alt="Unimed" class="logo-op">
+                            <div class="service-info">
+                                <span>Washington José</span>
+                                <span>Unimed</span>
+                            </div>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill status-pendente">Pendente</span>
+                        </div>
+                        <div class="col-date">06/09/2025</div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+<style>
+   /* --- Configuração Geral --- */
+:root {
+    --sidebar-bg: #1a1d2e;
+    --sidebar-active: #393c53;
+    --main-bg: #f8f9fe;
+    --card-bg: #ffffff;
+    --text-primary: #1a1d2e;
+    --text-secondary: #6c757d;
+    --text-light: #e0e0e0;
+    --color-green: #19b16a;
+    --color-red: #d32f2f;
+    --color-blue: #0063f7;
+    --border-color: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--sidebar-bg); /* Fundo escuro por trás de tudo */
+}
+
+/* --- Container Principal do Dashboard --- */
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ================== */
+/* BARRA LATERAL     */
+/* ================== */
+.sidebar {
+    flex-basis: 280px; /* Largura fixa da barra lateral */
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-search {
+    display: flex;
+    align-items: center;
+    background-color: var(--sidebar-active);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 30px;
+}
+
+.sidebar-search i {
+    margin-right: 12px;
+    color: var(--text-secondary);
+}
+
+.sidebar-search input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.sidebar-search input::placeholder {
+    color: var(--text-secondary);
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-nav a i {
+    width: 20px;
+    margin-right: 16px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.sidebar-nav a span {
+    font-weight: 500;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav li.active a {
+    background-color: var(--sidebar-active);
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto; /* Empurra para o final */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: var(--sidebar-active);
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info .user-name {
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.user-info .user-email {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.user-profile > i {
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+/* ================== */
+/* CONTEÚDO PRINCIPAL */
+/* ================== */
+.main-content {
+    flex: 1; /* Ocupa o resto do espaço */
+    background-color: var(--main-bg);
+    /* A "mágica" da borda arredondada */
+    border-top-left-radius: 30px; 
+    padding: 30px 40px;
+    overflow-y: auto; /* Caso o conteúdo seja maior */
+}
+
+/* --- Cabeçalho --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* --- Botões --- */
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--color-green);
+    color: #ffffff;
+}
+.btn-primary:hover {
+    background-color: #148a52;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-filter {
+    background-color: #ffffff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+}
+
+/* --- Cards de Estatísticas --- */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    position: relative; /* Para o gráfico */
+}
+
+.card-title {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.card-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.card-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+.link-atendimento { color: var(--color-blue); }
+.link-glosa { color: var(--color-red); }
+
+/* Card com gráfico */
+.card-chart .card-stats {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.card-chart .stat-percent {
+    color: var(--color-green);
+    font-weight: 600;
+    margin-right: 4px;
+}
+.card-chart .stat-percent i {
+    font-size: 0.8rem;
+}
+
+.mini-chart {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 100px;
+    height: 40px;
+}
+
+/* --- Lista de Pendências --- */
+.pending-tasks h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-tag {
+    background-color: #e4f8ee;
+    color: var(--color-green);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.filter-tag i {
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.search-and-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.list-search {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.list-search i {
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.list-search input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+/* --- Tabela/Lista --- */
+.task-list {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.list-item {
+    display: grid;
+    /* Define o alinhamento das colunas */
+    grid-template-columns: 3fr 1fr 1fr; 
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-header {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.list-header i {
+    font-size: 0.7rem;
+    margin-left: 4px;
+}
+
+.col-service {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.col-service i {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.logo-op {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 1px solid var(--border-color);
+}
+
+.service-info span {
+    display: block;
+}
+.service-info span:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.service-info span:last-child {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.status-pendente {
+    background-color: #ffeeee;
+    color: var(--color-red);
+}
+
+.col-date {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+
+/* --- Responsividade (Simples) --- */
+@media (max-width: 1200px) {
+    .stats-cards {
+        grid-template-columns: 1fr; /* Empilha os cards */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        flex-basis: auto; /* Altura automática */
+        width: 100%;
+    }
+    .main-content {
+        border-top-left-radius: 0; /* Remove a borda no mobile */
+    }
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+} 
+</style>
+</html>
