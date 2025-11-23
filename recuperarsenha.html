@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha - Poyer</title>
+    <link rel="icon" type="image/png" href="img/Vector(2).png">
     
     <style>
-        /* --- Configuração Geral --- */
         :root {
             --color-green: #6a8f44;
             --color-green-dark: #5a7a3a;
@@ -29,14 +29,12 @@
             color: var(--text-primary);
         }
 
-        /* --- Container Principal (Divide a tela em 2) --- */
         .login-container {
             display: flex;
             width: 100%;
             height: 100vh;
         }
 
-        /* --- Lado Esquerdo: Formulário --- */
         .login-section {
             flex-basis: 50%;
             background-color: #ffffff;
@@ -51,7 +49,6 @@
             max-width: 400px;
         }
 
-        /* --- Logo --- */
         .logo-container {
             text-align: center;
             margin-bottom: 2rem;
@@ -62,7 +59,6 @@
             height: auto;
         }
 
-        /* --- Título e Instrução --- */
         .form-header {
             text-align: center;
             margin-bottom: 2rem;
@@ -82,7 +78,6 @@
         }
 
 
-        /* --- Campos do Formulário --- */
         form {
             width: 100%;
         }
@@ -109,11 +104,10 @@
             color: var(--text-light);
         }
 
-        /* --- Botão --- */
         .login-button {
             width: 100%;
             padding: 16px;
-            margin-top: 1rem; /* Espaço acima do botão */
+            margin-top: 1rem;
             border: none;
             border-radius: 8px;
             background-color: var(--color-green);
@@ -128,7 +122,6 @@
             background-color: var(--color-green-dark);
         }
 
-        /* --- Link de Voltar --- */
         .back-to-login {
             text-align: center;
             margin-top: 2rem;
@@ -145,7 +138,6 @@
             text-decoration: underline;
         }
 
-        /* --- Lado Direito: Imagem --- */
         .image-section {
             flex-basis: 50%;
             background-color: #f0f0f0;
@@ -155,7 +147,6 @@
         }
 
 
-        /* --- Responsividade (Celulares) --- */
         @media (max-width: 768px) {
             .login-container {
                 flex-direction: column;
@@ -164,7 +155,7 @@
             .login-section {
                 flex-basis: 100%;
                 min-height: 100vh;
-                align-items: center; /* Centraliza melhor */
+                align-items: center;
             }
 
             .image-section {

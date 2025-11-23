@@ -4,31 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda - Poyer</title>
+    <link rel="icon" type="image/png" href="img/Vector(2).png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* --- Configuração Geral --- */
         :root {
             --sidebar-bg: #1a1d2e;
             --main-bg: #ffffff;
-            --content-bg: #f8f9fe; /* Fundo do "miolo" */
+            --content-bg: #f8f9fe; 
             --border-color: #e9ecef;
             --text-primary: #1a1d2e;
             --text-secondary: #6c757d;
             --text-light: #e0e0e0;
             --color-green: #19b16a;
-            
-            /* Cores dos Cards */
             --card-gray-bg: #f8f9fa;
             --card-gray-border: #dee2e6;
             --card-blue-bg: #e7f5ff;
             --card-blue-border: #b3dfff;
             --card-pink-bg: #fff0f6;
             --card-pink-border: #ffcce5;
-
-            /* Configuração da Agenda */
-            --hour-height: 80px; /* Altura de 1 hora na agenda */
-            --header-height: 60px; /* Altura do cabeçalho dos dias */
+            --hour-height: 80px; 
+            --header-height: 60px;
         }
 
         * {
@@ -41,105 +37,131 @@
             height: 100%;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--sidebar-bg);
-            overflow: hidden; /* Evita scroll da página inteira */
+            overflow: hidden;
         }
 
-        /* --- Container Principal --- */
         .calendar-container {
             display: flex;
             width: 100%;
             height: 100vh;
         }
 
-        /* ================== */
-        /* BARRA LATERAL (FINA) */
-        /* ================== */
-        .sidebar-slim {
-            flex-basis: 90px; /* Largura fixa da barra lateral */
-            background-color: var(--sidebar-bg);
-            color: var(--text-light);
-            padding: 24px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        .sidebar-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 40px;
-        }
+.sidebar {
+    flex-basis: 280px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    color: #e0e0e0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
 
-        .sidebar-nav-slim {
-            list-style: none;
-            width: 100%;
-        }
+.sidebar-search {
+    display: flex;
+    align-items: center;
+    background-color: var(--sidebar-active, #393c53);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 30px;
+}
 
-        .sidebar-nav-slim li {
-            margin-bottom: 10px;
-        }
+.sidebar-search i {
+    margin-right: 12px;
+    color: var(--text-secondary);
+}
 
-        .sidebar-nav-slim a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 50px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            position: relative;
-            transition: color 0.3s;
-        }
+.sidebar-search input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
 
-        .sidebar-nav-slim a:hover,
-        .sidebar-nav-slim li.active a {
-            color: #ffffff;
-        }
+.sidebar-nav {
+    list-style: none;
+    margin-bottom: 20px;
+}
 
-        /* Destaque do item ativo */
-        .sidebar-nav-slim li.active a::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 30px;
-            background-color: var(--color-green);
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-        }
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
 
-        .sidebar-footer-slim {
-            margin-top: auto;
-        }
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    transition: 0.3s;
+}
 
-        .avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--text-secondary);
-        }
+.sidebar-nav a i {
+    width: 20px;
+    margin-right: 16px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.sidebar-nav a span {
+    font-weight: 500;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav li.active a {
+    background-color: var(--sidebar-active, #393c53);
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: var(--sidebar-active, #393c53);
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info .user-name {
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.user-info .user-email {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
         
-        /* ================== */
-        /* CONTEÚDO PRINCIPAL */
-        /* ================== */
         .main-content {
             flex: 1; 
             background-color: var(--content-bg);
             border-top-left-radius: 30px; 
-            overflow-y: auto; /* Permite scroll só do conteúdo */
+            overflow-y: auto;
             padding: 30px 40px;
         }
 
-        /* --- Cabeçalho --- */
         .main-header {
             display: flex;
             justify-content: space-between;
@@ -174,7 +196,6 @@
             background-color: #148a52;
         }
 
-        /* --- Controles do Calendário --- */
         .calendar-controls {
             display: flex;
             justify-content: space-between;
@@ -202,7 +223,7 @@
             line-height: 1;
         }
         .btn-today {
-            background-color: #f0f0f0; /* "Hoje" está desabilitado na imagem */
+            background-color: #f0f0f0;
             color: var(--text-secondary);
         }
 
@@ -234,7 +255,6 @@
             color: var(--text-primary);
         }
 
-        /* --- Container do Calendário (Wrapper) --- */
         .calendar-wrapper {
             display: flex;
             background-color: var(--main-bg);
@@ -242,11 +262,10 @@
             border-radius: 12px;
         }
 
-        /* --- Coluna de Horas --- */
         .time-column {
             flex-basis: 90px;
             flex-shrink: 0;
-            padding-top: var(--header-height); /* Pula o cabeçalho dos dias */
+            padding-top: var(--header-height); 
         }
 
         .time-slot {
@@ -259,20 +278,18 @@
             color: var(--text-secondary);
         }
         .time-slot span {
-            /* Desce o texto para alinhar com a linha */
             position: relative;
             top: -0.5em; 
         }
         .time-slot:first-child {
-             border-top: none; /* Não precisa de borda no topo */
+             border-top: none; 
         }
 
-        /* --- Container dos Dias (Grid) --- */
         .days-container {
-            flex: 1; /* Ocupa o resto */
+            flex: 1;
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            position: relative; /* Para a linha do tempo */
+            position: relative;
         }
 
         .day-header {
@@ -288,36 +305,31 @@
         }
 
         .day-column {
-            position: relative; /* Contexto para os cards */
+            position: relative; 
             border-left: 1px solid var(--border-color);
         }
 
-        /* Linhas de hora dentro de cada coluna */
         .day-column .hour-line {
             height: var(--hour-height);
             border-bottom: 1px solid var(--border-color);
         }
         .day-column .hour-line:last-child {
-            border-bottom: none; /* Última linha não precisa */
+            border-bottom: none;
         }
 
-        /* --- Linha do Tempo Atual --- */
         .current-time-line {
             position: absolute;
             left: 0;
             right: 0;
-            /* Posição: (Hora - Hora de Início) * Altura da Hora
-              (10:00 - 9:00) * 80px = 80px 
-            */
             top: calc(var(--header-height) + var(--hour-height)); 
             height: 2px;
-            background-color: #f39c12; /* Laranja */
+            background-color: #f39c12; 
             z-index: 10;
         }
         .current-time-line::before {
             content: '';
             position: absolute;
-            left: -6px; /* Metade da largura para fora da linha */
+            left: -6px;
             top: 50%;
             transform: translateY(-50%);
             width: 12px;
@@ -326,7 +338,6 @@
             border-radius: 50%;
         }
 
-        /* --- Cards de Agendamento --- */
         .appointment-card {
             position: absolute;
             left: 8px;
@@ -335,8 +346,6 @@
             border-radius: 6px;
             padding: 10px;
             overflow: hidden;
-            
-            /* Estilo do card */
             font-size: 0.8rem;
             border-left: 4px solid;
             transition: all 0.2s ease;
@@ -376,7 +385,6 @@
             right: 8px;
         }
 
-        /* Cores dos Cards */
         .card-gray {
             background-color: var(--card-gray-bg);
             border-color: var(--card-gray-border);
@@ -403,22 +411,32 @@
 
     <div class="calendar-container">
         
-        <nav class="sidebar-slim">
-            <div class="sidebar-logo">
-                <img src="img/Vector(2).png" alt="white-logo-poyer">
-            </div>
+       <nav class="sidebar">
+    <div class="sidebar-search">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" placeholder="Pesquisar">
+    </div>
 
-            <ul class="sidebar-nav-slim">
-                <li><a href="#"><i class="fas fa-chart-pie"></i></a></li>
-                <li><a href="#"><i class="fas fa-folder"></i></a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i></a></li>
-                <li class="active"><a href="#"><i class="fas fa-user-group"></i></a></li>
-            </ul>
+    <ul class="sidebar-nav">
+        <li class="active"><a href="agenda.html"><i class="fas fa-calendar-days"></i><span>Agenda</span></a></li>
+        <li><a href="cadastro.html"><i class="fas fa-user-group"></i><span>Pacientes</span></a></li>
+        <li><a href="prontuario.html"><i class="fas fa-folder-open"></i><span>Prontuários</span></a></li>
+        <li><a href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Financeiro</span></a></li> </ul>
 
-            <div class="sidebar-footer-slim">
-                <img src="img/adriana.png" alt="Foto de Perfil" class="avatar">
+    <div class="sidebar-footer">
+        <ul class="sidebar-nav">
+            <li><a href="configuracoes.html"><i class="fas fa-gear"></i><span>Configurações</span></a></li>
+        </ul>
+        <div class="user-profile">
+            <img src="img/adriana.png" alt="Foto" class="avatar">
+            <div class="user-info">
+                <span class="user-name">Adriana Nunes</span>
+                <span class="user-email">recepcao@poyer.com</span>
             </div>
-        </nav>
+            <a href="loginpage.html" style="color: inherit; margin-left: auto;"><i class="fas fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+</nav>
 
         <main class="main-content">
             
@@ -528,7 +546,7 @@
                         <div class="hour-line"></div><div class="hour-line"></div><div class="hour-line"></div>
                         <div class="hour-line"></div>
                         
-                        <div class="appointment-card card-pink" style="top: 520px; height: 160px;">
+                        <div class="appointment-card card-pink" style="top: 520px; height: 160px;" onclick="window.location.href='prontuario.html'">
                             <span class="card-time">15:30 17:30</span>
                             <span class="card-patient">João Augusto</span>
                             <span class="card-service">Sessão de Fisioterapia</span>

@@ -4,377 +4,454 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acompanhamento de Lotes - Poyer</title>
+    <link rel="icon" type="image/png" href="img/Vector(2).png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* --- Configuração Geral --- */
-        :root {
-            --sidebar-bg: #1a1d2e;
-            --main-bg: #ffffff;
-            --content-bg: #f8f9fe; /* Fundo do "miolo" */
-            --border-color: #e9ecef;
-            --text-primary: #1a1d2e;
-            --text-secondary: #6c757d;
-            --text-light: #e0e0e0;
-            --color-green: #19b16a;
-            --color-green-light: #e4f8ee;
-            --color-red: #d32f2f;
-            --color-red-light: #ffeeee;
-            --color-blue: #0063f7;
-            --color-blue-light: #e7f5ff;
-            --color-orange: #f08532; 
-        }
+:root {
+    --sidebar-bg: #1a1d2e;
+    --sidebar-active: #393c53;
+    --main-bg: #ffffff;
+    --content-bg: #f8f9fe;
+    --border-color: #e9ecef;
+    --text-primary: #1a1d2e;
+    --text-secondary: #6c757d;
+    --text-light: #e0e0e0;
+    --color-green: #19b16a;
+    --color-green-light: #e4f8ee;
+    --color-red: #d32f2f;
+    --color-red-light: #ffeeee;
+    --color-blue: #0063f7;
+    --color-blue-light: #e7f5ff;
+    --color-orange: #f08532; 
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body, html {
-            height: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--sidebar-bg);
-            overflow: hidden; /* Evita scroll da página inteira */
-        }
+body, html {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--sidebar-bg);
+    overflow: hidden;
+}
 
-        /* --- Container Principal --- */
-        .page-container {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-        }
+.page-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
 
-        /* ================== */
-        /* BARRA LATERAL (FINA) */
-        /* ================== */
-        .sidebar-slim {
-            flex-basis: 90px;
-            flex-shrink: 0;
-            background-color: var(--sidebar-bg);
-            color: var(--text-light);
-            padding: 24px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.sidebar {
+    flex-basis: 280px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
 
-        .sidebar-logo {
-            width: 40px;
-            height: 40px;
-            /* Placeholder para o logo de coração */
-            background-color: transparent; 
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 40px;
-        }
+.sidebar-search {
+    display: flex;
+    align-items: center;
+    background-color: var(--sidebar-active);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 30px;
+}
 
-        .sidebar-nav-slim {
-            list-style: none;
-            width: 100%;
-        }
+.sidebar-search i {
+    margin-right: 12px;
+    color: var(--text-secondary);
+}
 
-        .sidebar-nav-slim li {
-            margin-bottom: 10px;
-        }
+.sidebar-search input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
 
-        .sidebar-nav-slim a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 50px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            position: relative;
-            transition: color 0.3s;
-        }
+.sidebar-search input::placeholder {
+    color: var(--text-secondary);
+}
 
-        /* Na imagem de referência, nenhum item está ativo */
-        .sidebar-nav-slim a:hover,
-        .sidebar-nav-slim li.active a {
-            color: #ffffff;
-        }
+.sidebar-nav {
+    list-style: none;
+    margin-bottom: 20px;
+}
 
-        .sidebar-footer-slim {
-            margin-top: auto;
-        }
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
 
-        .avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            /* Borda sutil como na imagem */
-            border: 1px solid var(--text-secondary); 
-        }
-        
-        /* ================== */
-        /* CONTEÚDO PRINCIPAL */
-        /* ================== */
-        .main-content {
-            flex: 1; 
-            background-color: var(--content-bg);
-            border-top-left-radius: 30px; 
-            overflow-y: auto;
-            padding: 30px 40px;
-        }
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        /* --- Cabeçalho --- */
-        .main-header {
-            margin-bottom: 30px;
-        }
+.sidebar-nav a i {
+    width: 20px;
+    margin-right: 16px;
+    font-size: 1.1rem;
+    text-align: center;
+}
 
-        .main-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
+.sidebar-nav a span {
+    font-weight: 500;
+}
 
-        /* --- Controles da Página (Filtros e Ações) --- */
-        .page-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
+.sidebar-nav a:hover,
+.sidebar-nav li.active a {
+    background-color: var(--sidebar-active);
+    color: #ffffff;
+}
 
-        .filters {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.sidebar-footer {
+    margin-top: auto;
+}
 
-        .filter-tag {
-            background-color: var(--color-green-light);
-            color: var(--color-green);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 6px 10px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .filter-tag i {
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: var(--sidebar-active);
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 20px;
+}
 
-        /* Botões */
-        .btn {
-            padding: 10px 18px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background-color 0.3s;
-        }
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
 
-        .btn-filter {
-            background-color: var(--main-bg);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            padding: 8px 12px;
-        }
-        .btn-filter:hover {
-            background-color: #f1f3f5;
-        }
+.user-info {
+    flex: 1;
+}
 
-        /* Botões de Ação */
-        .btn-success {
-            background-color: var(--color-green);
-            color: #ffffff;
-        }
-        .btn-success:hover { background-color: #148a52; }
-        
-        .btn-xml {
-            background-color: var(--color-orange);
-            color: #ffffff;
-        }
-        .btn-xml:hover { background-color: #d87028; }
+.user-info .user-name {
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
 
-        .btn-danger {
-            background-color: var(--color-red);
-            color: #ffffff;
-        }
-        .btn-danger:hover { background-color: #a02323; }
+.user-info .user-email {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
 
+.user-profile > i {
+    color: var(--text-secondary);
+    cursor: pointer;
+}
 
-        .page-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .action-search {
-            display: flex;
-            align-items: center;
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px 12px;
-        }
+.main-content {
+    flex: 1; 
+    background-color: var(--content-bg);
+    border-top-left-radius: 30px; 
+    overflow-y: auto;
+    padding: 30px 40px;
+}
 
-        .action-search i {
-            color: var(--text-secondary);
-            margin-right: 8px;
-        }
+.main-header {
+    margin-bottom: 30px;
+}
 
-        .action-search input {
-            border: none;
-            outline: none;
-            font-size: 0.9rem;
-        }
-        .action-search input::placeholder {
-            color: #aaa;
-        }
+.main-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
 
-        /* --- Lista/Tabela de Remessas --- */
-        .remittance-list-container {
-            background-color: var(--main-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-            overflow: hidden; 
-        }
+.page-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
 
-        .list-item {
-            display: grid;
-            /* Definição das colunas: 
-               Checkbox | Protocolo | Status | Convênio | Valor | Data */
-            grid-template-columns: 50px 2.5fr 1fr 1.5fr 1.5fr 1fr;
-            align-items: center;
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .remittance-list-container .list-item:last-child {
-            border-bottom: none;
-        }
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        /* Cabeçalho da Lista */
-        .list-header {
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background-color: #fdfdfd;
-        }
-        
-        .list-header i.fa-sort-down {
-            font-size: 0.9rem;
-            margin-left: 4px;
-        }
+.filter-tag {
+    background-color: var(--color-green-light);
+    color: var(--color-green);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        /* Linhas da Lista */
-        .list-row {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            transition: background-color 0.2s;
-        }
-        .list-row:hover {
-            background-color: #f8f9fa;
-        }
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
 
-        /* Checkbox */
-        .col-check i {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            cursor: pointer;
-        }
-        .col-check i.fa-square-check {
-            color: var(--color-green);
-        }
+.btn-filter {
+    background-color: var(--main-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+}
+.btn-filter:hover { background-color: #f1f3f5; }
 
-        /* Protocolo */
-        .col-protocol {
-            font-weight: 500;
-        }
-        .col-protocol span {
-            font-weight: normal;
-            color: var(--text-secondary);
-            margin-left: 4px;
-        }
-        
-        /* Status */
-        .status-pill {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            width: fit-content;
-        }
-        .status-enviado {
-            background-color: var(--color-blue-light);
-            color: var(--color-blue);
-        }
-        .status-glosa {
-            background-color: var(--color-red-light);
-            color: var(--color-red);
-        }
-        .status-pago {
-            background-color: var(--color-green-light);
-            color: var(--color-green);
-        }
-        
-        .col-valor {
-            font-weight: 500;
-        }
+.btn-success {
+    background-color: var(--color-green);
+    color: #ffffff;
+}
+.btn-success:hover { background-color: #148a52; }
 
+.btn-xml {
+    background-color: var(--color-orange);
+    color: #ffffff;
+}
+.btn-xml:hover { background-color: #d87028; }
+
+.btn-danger {
+    background-color: var(--color-red);
+    color: #ffffff;
+}
+.btn-danger:hover { background-color: #a02323; }
+
+.page-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.action-search {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.action-search i {
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.action-search input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.remittance-list-container {
+    background-color: var(--main-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    overflow: hidden; 
+}
+
+.list-item {
+    display: grid;
+    grid-template-columns: 50px 2.5fr 1fr 1.5fr 1.5fr 1fr;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-header {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #fdfdfd;
+}
+
+.list-row {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: background-color 0.2s;
+}
+.list-row:hover {
+    background-color: #f8f9fa;
+}
+
+.col-check i.fa-square-check {
+    color: var(--color-green);
+}
+.col-check i {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.col-protocol span {
+    font-weight: normal;
+    color: var(--text-secondary);
+    margin-left: 4px;
+}
+
+.col-valor {
+    font-weight: 500;
+}
+
+.status-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.status-enviado {
+    background-color: var(--color-blue-light);
+    color: var(--color-blue);
+}
+
+.status-glosa {
+    background-color: var(--color-red-light);
+    color: var(--color-red);
+}
+
+.status-pago {
+    background-color: var(--color-green-light);
+    color: var(--color-green);
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        flex-basis: auto;
+    }
+    .main-content {
+        border-top-left-radius: 0;
+    }
+    .list-item {
+        grid-template-columns: 50px 200px 100px 150px 100px 100px;
+        overflow-x: auto;
+    }
+}
     </style>
 </head>
 <body>
 
     <div class="page-container">
         
-        <nav class="sidebar-slim">
-            <div class="sidebar-logo">
-                <img src="img/Vector(2).png" alt="white-logo-poyer">
-            </div>
+        <nav class="sidebar">
+    <div class="sidebar-search">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" placeholder="Pesquisar">
+    </div>
 
-            <ul class="sidebar-nav-slim">
-                <li><a href="#"><i class="fas fa-home"></i></a></li>
-                <li><a href="#"><i class="fas fa-chart-bar"></i></a></li>
-                <li><a href="#"><i class="fas fa-folder"></i></a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i></a></li>
-                <li><a href="#"><i class="fas fa-user-group"></i></a></li>
-            </ul>
+    <ul class="sidebar-nav">
+        <li>
+            <a href="dashboard.html">
+                <i class="fas fa-house"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="dashboard.html">
+                <i class="fas fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="cadastro.html">
+                <i class="fas fa-user-group"></i>
+                <span>Pacientes</span>
+            </a>
+        </li>
+        <li>
+            <a href="faturamento.html">
+                <i class="fas fa-dollar-sign"></i>
+                <span>Financeiro</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="remessas.html">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Relatórios</span>
+            </a>
+        </li>
+    </ul>
 
-            <div class="sidebar-footer-slim">
-                <img src="img/adriana.png" alt="Foto de Perfil" class="avatar">
+    <div class="sidebar-footer">
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#">
+                    <i class="fas fa-circle-question"></i>
+                    <span>Ajuda</span>
+                </a>
+            </li>
+            <li>
+                <a href="configuracoes.html">
+                    <i class="fas fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-profile">
+            <img src="img/adriana.png" alt="Foto de Perfil" class="avatar">
+            <div class="user-info">
+                <span class="user-name">Adriana Nunes</span>
+                <span class="user-email">financeiro@poyer.com</span>
             </div>
-        </nav>
+            
+            <a href="loginpage.html" style="color: inherit; margin-left: auto;">
+                <i class="fas fa-arrow-right-from-bracket"></i>
+            </a>
+        </div>
+    </div>
+</nav>
 
         <main class="main-content">
-            
             <header class="main-header">
                 <h1>Acompanhamento de Lotes/Remessas</h1>
             </header>
 
             <section class="page-controls">
                 <div class="filters">
-                    <span class="filter-tag">
-                        Último mês <i class="fas fa-times"></i>
-                    </span>
-                    <button class="btn btn-filter">
-                        <i class="fas fa-filter"></i>
-                        <span>Filtros</span>
-                    </button>
+                    <span class="filter-tag">Último mês <i class="fas fa-times"></i></span>
+                    <button class="btn btn-filter"><i class="fas fa-filter"></i><span>Filtros</span></button>
                 </div>
-
                 <div class="page-actions">
                     <button class="btn btn-success">Detalhes</button>
                     <button class="btn btn-xml">Gerar XML</button>
                     <button class="btn btn-danger">Registrar Pagamentos</button>
-
                     <div class="action-search">
                         <i class="fas fa-magnifying-glass"></i>
                         <input type="text" placeholder="Pesquisar">
@@ -383,84 +460,43 @@
             </section>
 
             <section class="remittance-list-container">
-                
                 <div class="list-item list-header">
-                    <div class="col-check">
-                        <i class="fa-regular fa-square"></i>
-                    </div>
-                    <div class="col-protocol">
-                        Protocolos <i class="fas fa-sort-down"></i>
-                    </div>
+                    <div class="col-check"><i class="fa-regular fa-square"></i></div>
+                    <div class="col-protocol">Protocolo <i class="fas fa-sort-down"></i></div>
                     <div>Status</div>
-                    <div>Convênio</div> <div>Valor</div>
+                    <div>Convênio</div>
+                    <div>Valor</div>
                     <div>Data</div>
                 </div>
 
                 <div class="list-item list-row">
-                    <div class="col-check">
-                        <i class="fas fa-square-check"></i>
-                    </div>
-                    <div class="col-protocol">
-                        #1023 <span>(Aguardando protocolo)</span>
-                    </div>
-                    <div>
-                        <span class="status-pill status-enviado">Enviado</span>
-                    </div>
+                    <div class="col-check"><i class="fas fa-square-check"></i></div>
+                    <div class="col-protocol">#1023 <span>(Aguardando)</span></div>
+                    <div><span class="status-pill status-enviado">Enviado</span></div>
                     <div>Bradesco Saúde</div>
                     <div class="col-valor">R$3.450,00</div>
                     <div>20/09/2025</div>
                 </div>
 
                 <div class="list-item list-row">
-                    <div class="col-check">
-                        <i class="fa-regular fa-square"></i>
-                    </div>
-                    <div class="col-protocol">
-                        #1022 <span>Prot: 202509230815034</span>
-                    </div>
-                    <div>
-                        <span class="status-pill status-glosa">Com Glosa</span>
-                    </div>
+                    <div class="col-check"><i class="fa-regular fa-square"></i></div>
+                    <div class="col-protocol">#1022 <span>Prot: 202509...</span></div>
+                    <div><span class="status-pill status-glosa">Com Glosa</span></div>
                     <div>Unimed</div>
                     <div class="col-valor">R$1.980,00</div>
                     <div>19/09/2025</div>
                 </div>
 
                 <div class="list-item list-row">
-                    <div class="col-check">
-                        <i class="fa-regular fa-square"></i>
-                    </div>
-                    <div class="col-protocol">
-                        #1021 <span>Prot: 202509221144009</span>
-                    </div>
-                    <div>
-                        <span class="status-pill status-pago">Pago</span>
-                    </div>
+                    <div class="col-check"><i class="fa-regular fa-square"></i></div>
+                    <div class="col-protocol">#1021 <span>Prot: 202509...</span></div>
+                    <div><span class="status-pill status-pago">Pago</span></div>
                     <div>Amil</div>
                     <div class="col-valor">R$5.230,00</div>
                     <div>17/08/2025</div>
                 </div>
-
-                <div class="list-item list-row">
-                    <div class="col-check">
-                        <i class="fas fa-square-check"></i>
-                    </div>
-                    <div class="col-protocol">
-                        #1020 <span>Prot: 202509201144009</span>
-                    </div>
-                    <div>
-                        <span class="status-pill status-glosa">Com Glosa</span>
-                    </div>
-                    <div>Unimed</div>
-                    <div class="col-valor">R$2.530,00</div>
-                    <div>17/08/2025</div>
-                </div>
-
             </section>
-
         </main>
-
     </div>
-
 </body>
 </html>

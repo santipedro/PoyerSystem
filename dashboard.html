@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Poyer</title>
+    <link rel="icon" type="image/png" href="img/Vector(2).png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -18,35 +19,11 @@
             </div>
 
             <ul class="sidebar-nav">
-                <li>
-                    <a href="#">
-                        <i class="fas fa-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="active"> <a href="#">
-                        <i class="fas fa-chart-pie"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-user-group"></i>
-                        <span>Pacientes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-dollar-sign"></i>
-                        <span>Financeiro</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-clipboard-list"></i>
-                        <span>Relatórios</span>
-                    </a>
-                </li>
+                <li><a href="dashboard.html"><i class="fas fa-house"></i><span>Home</span></a></li>
+                <li class="active"><a href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a></li>
+                <li><a href="cadastro.html"><i class="fas fa-user-group"></i><span>Pacientes</span></a></li>
+                <li><a href="gerarlote.html"><i class="fas fa-dollar-sign"></i><span>Financeiro</span></a></li>
+                <li><a href="trackinglotesremessas.html"><i class="fas fa-clipboard-list"></i><span>Relatórios</span></a></li>
             </ul>
 
             <div class="sidebar-footer">
@@ -58,20 +35,22 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="fas fa-gear"></i>
-                            <span>Configurações</span>
-                        </a>
-                    </li>
+                <a href="configuracoes.html">
+                    <i class="fas fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+            </li>
                 </ul>
 
                 <div class="user-profile">
                     <img src="img/adriana.png" alt="Foto de Adriana Nunes" class="avatar">
                     <div class="user-info">
                         <span class="user-name">Adriana Nunes</span>
-                        <span class="user-email">adrinun@poyer.com</span>
+                        <span class="user-email">financeiro@poyer.com</span>
                     </div>
-                    <i class="fas fa-arrow-right-from-bracket"></i>
+                    <a href="loginpage.html" style="color: inherit; margin-left: auto;">
+                <i class="fas fa-arrow-right-from-bracket"></i>
+            </a>
                 </div>
             </div>
         </nav>
@@ -83,11 +62,11 @@
                 <div class="header-actions">
                     <button class="btn btn-secondary">
                         <i class="fas fa-list-check"></i>
-                        <span>Ver Glosas</span>
+                        <a href="trackinglotesremessas.html" >Ver Glosas</a>
                     </button>
-                    <button class="btn btn-primary">
+                    <button onclick class="btn btn-primary">
                         <i class="fas fa-plus"></i>
-                        <span>Gerar novo lote</span>
+                        <a href="gerarlote.html">Gerar novo lote</a>
                     </button>
                 </div>
             </header>
@@ -102,7 +81,7 @@
                 <div class="card">
                     <span class="card-title">Glosas pendentes de análises</span>
                     <span class="card-value">18</span>
-                    <a href="#" class="card-link link-glosa">Analisar Glosas</a>
+                    <a href="trackinglotesremessas.html" class="card-link link-glosa">Analisar Glosas</a>
                 </div>
                 
                 <div class="card card-chart">
@@ -237,7 +216,6 @@
 
 </body>
 <style>
-   /* --- Configuração Geral --- */
 :root {
     --sidebar-bg: #1a1d2e;
     --sidebar-active: #393c53;
@@ -261,21 +239,17 @@
 body, html {
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--sidebar-bg); /* Fundo escuro por trás de tudo */
+    background-color: var(--sidebar-bg);
 }
 
-/* --- Container Principal do Dashboard --- */
 .dashboard-container {
     display: flex;
     width: 100%;
     min-height: 100vh;
 }
 
-/* ================== */
-/* BARRA LATERAL     */
-/* ================== */
 .sidebar {
-    flex-basis: 280px; /* Largura fixa da barra lateral */
+    flex-basis: 280px; 
     background-color: var(--sidebar-bg);
     color: var(--text-light);
     padding: 24px;
@@ -347,7 +321,7 @@ body, html {
 }
 
 .sidebar-footer {
-    margin-top: auto; /* Empurra para o final */
+    margin-top: auto;
 }
 
 .user-profile {
@@ -389,19 +363,14 @@ body, html {
     cursor: pointer;
 }
 
-/* ================== */
-/* CONTEÚDO PRINCIPAL */
-/* ================== */
 .main-content {
-    flex: 1; /* Ocupa o resto do espaço */
+    flex: 1;
     background-color: var(--main-bg);
-    /* A "mágica" da borda arredondada */
     border-top-left-radius: 30px; 
     padding: 30px 40px;
-    overflow-y: auto; /* Caso o conteúdo seja maior */
+    overflow-y: auto;
 }
 
-/* --- Cabeçalho --- */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -420,7 +389,6 @@ body, html {
     gap: 12px;
 }
 
-/* --- Botões --- */
 .btn {
     padding: 10px 18px;
     border: none;
@@ -458,10 +426,9 @@ body, html {
     padding: 8px 12px;
 }
 
-/* --- Cards de Estatísticas --- */
 .stats-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 24px;
     margin-bottom: 40px;
 }
@@ -471,7 +438,7 @@ body, html {
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    position: relative; /* Para o gráfico */
+    position: relative; 
 }
 
 .card-title {
@@ -498,7 +465,6 @@ body, html {
 .link-atendimento { color: var(--color-blue); }
 .link-glosa { color: var(--color-red); }
 
-/* Card com gráfico */
 .card-chart .card-stats {
     font-size: 0.9rem;
     color: var(--text-secondary);
@@ -520,7 +486,6 @@ body, html {
     height: 40px;
 }
 
-/* --- Lista de Pendências --- */
 .pending-tasks h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -582,7 +547,6 @@ body, html {
     font-size: 0.9rem;
 }
 
-/* --- Tabela/Lista --- */
 .task-list {
     background-color: var(--card-bg);
     border-radius: 12px;
@@ -591,7 +555,6 @@ body, html {
 
 .list-item {
     display: grid;
-    /* Define o alinhamento das colunas */
     grid-template-columns: 3fr 1fr 1fr; 
     align-items: center;
     padding: 16px 24px;
@@ -665,10 +628,9 @@ body, html {
 }
 
 
-/* --- Responsividade (Simples) --- */
 @media (max-width: 1200px) {
     .stats-cards {
-        grid-template-columns: 1fr; /* Empilha os cards */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -677,11 +639,11 @@ body, html {
         flex-direction: column;
     }
     .sidebar {
-        flex-basis: auto; /* Altura automática */
+        flex-basis: auto; 
         width: 100%;
     }
     .main-content {
-        border-top-left-radius: 0; /* Remove a borda no mobile */
+        border-top-left-radius: 0;
     }
     .main-header {
         flex-direction: column;
