@@ -372,10 +372,11 @@ input:checked + .slider:before { transform: translateX(22px); }
     </div>
 
     <ul class="sidebar-nav">
-        <li class="active"><a href="calendario.html"><i class="fas fa-calendar-days"></i><span>Calendário</span></a></li>
-        <li><a href="cadastropaciente.html"><i class="fas fa-user-group"></i><span>Pacientes</span></a></li>
-        <li><a href="prontuario.html"><i class="fas fa-folder-open"></i><span>Prontuários</span></a></li>
-        <li><a href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Financeiro</span></a></li> </ul>
+                <li><a href="dashboard.html"><i class="fas fa-house"></i><span>Home</span></a></li>
+                <li><a href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a></li>
+                <li><a href="gerarlote.html"><i class="fas fa-dollar-sign"></i><span>Geração de lotes</span></a></li>
+                <li><a href="trackinglotesremessas.html"><i class="fas fa-clipboard-list"></i><span>Processos</span></a></li>
+            </ul>
 
     <div class="sidebar-footer">
         <ul class="sidebar-nav">
@@ -386,7 +387,7 @@ input:checked + .slider:before { transform: translateX(22px); }
             <div class="user-info">
                 <span class="user-name">Adriana Nunes</span>
             </div>
-            <a href="index.html" style="color: inherit; margin-left: auto;"><i class="fas fa-arrow-right-from-bracket"></i></a>
+            <a href="loginpage.html" style="color: inherit; margin-left: auto;"><i class="fas fa-arrow-right-from-bracket"></i></a>
         </div>
     </div>
 </nav>
@@ -404,7 +405,7 @@ input:checked + .slider:before { transform: translateX(22px); }
                         <h2>Meu Perfil</h2>
                         <div class="profile-edit">
                             <div class="profile-photo-container">
-                                <img src="img/adriana.png" alt="Adriana" class="profile-photo-large">
+                                <img src="img/adrianaperfil.png" alt="Adriana" class="profile-photo-large">
                                 <div class="photo-edit-btn">
                                     <i class="fas fa-camera"></i>
                                 </div>
@@ -416,7 +417,7 @@ input:checked + .slider:before { transform: translateX(22px); }
                                 </div>
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input type="email" value="recepcao@poyer.com" name="email_config">
+                                    <input type="email" value="financeiro@poyer.com" name="email_config">
                                 </div>
                                 <div class="form-group">
                                     <label>Telefone</label>
@@ -461,16 +462,6 @@ input:checked + .slider:before { transform: translateX(22px); }
                             </label>
                         </div>
 
-                        <div class="setting-item">
-                            <div class="setting-info">
-                                <h3>Novos Pacientes</h3>
-                                <p>Notificar ao cadastrar paciente.</p>
-                            </div>
-                            <label class="switch">
-                                <input type="checkbox" name="notif_paciente">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
 
                         <div class="setting-item">
                             <div class="setting-info">
